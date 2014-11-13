@@ -59,7 +59,8 @@ while True:
     except SMTPException as error:
         print("ERROR: Unable to send mail")   
     
-    ''' #debugging
+    '''
+    #debugging
     print "Done execution %i" % number
     number += 1
     #print len(relevant)
