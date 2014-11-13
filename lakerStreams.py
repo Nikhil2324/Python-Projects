@@ -18,7 +18,7 @@ r.login('username', 'password')
 title_flags = ['game', 'laker']
 seen_comments = set()
 streams = list()
-#number = 1 #debugging
+number = 1 #debugging
 
 #print("Done setup") #debugging
 
@@ -55,15 +55,10 @@ while True:
         smtpObj.login(user=SENDER, password="password")
         smtpObj.sendmail(SENDER, RECEIVER, msg.as_string())
         smtpObj.quit();
-        print ("Sent email")
+        #print ("Sent email")
     except SMTPException as error:
         print("ERROR: Unable to send mail")   
     
-    '''
-    #debugging
-    print "Done execution %i" % number
+    print "Done Execution Number %i" % number
     number += 1
-    #print len(relevant)
-    '''
-    #print "Done Executing"
     time.sleep(900)
