@@ -32,7 +32,7 @@ while True:
             #print("Replaced comments") #debugging
             forest_comments = submission.comments
             #print("Forest comment format") #debugging
-            #forest_comments.sort(key=ambda comment: comment.score) #Sorts by popularity, but not worth it for performance reasons
+            #forest_comments.sort(key=lambda comment: comment.score) #Sorts by popularity, but not worth it for performance reasons
             #print "Sorted comments" #debugging
             for comment in forest_comments:
                 if comment.id not in seen_comments and ("stream" in comment.body.lower() or "link" in comment.body.lower()):
