@@ -22,17 +22,18 @@ NUMBER = 1
 def getLinks():
     fresh = {}
     subreddit = r.get_subreddit("hiphopheads")
-    for submission in subreddit.get_hot(limit=50):
+    for submission in subreddit.get_hot(limit=50): #look through the most popular 50 posts at the moment (good cutoff in my opinion)
         title = submission.title.lower()
         if all(submission in title for submission in title_flags):
             title = submission.title.encode('utf-8') #some characters outside of ASCII range, need to encode
             link = submission.url.encode('utf-8') #some characters outside of ASCII range, need to encode
             fresh[title] = link
             
-    content = "Fresh Streams\n\n"
+    content = "Fresh Streams\n\n" #title of email
     for i in fresh:
-        content += (i + '\n' + fresh[i] + '\n\n')
+        content += (i + '\n' + fresh[i] + '\n\n') #song/album name on first line, link on second line, add blank line before next link
 
+#setup email
     msg = MIMEText(content, TEXT_SUBTYPE)
     msg["Subject"] = SUBJECT
     msg["From"] = SENDER
